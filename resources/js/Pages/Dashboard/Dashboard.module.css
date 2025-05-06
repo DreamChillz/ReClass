@@ -1,0 +1,50 @@
+.DashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #f8f9fb;
+}
+
+.DashboardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 78vw;
+  background-color: rgba(250, 235, 215, 0);
+  overflow: hidden;
+}
+
+.UpperContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(163, 245, 131, 0);
+}
+
+.MiddleContent {
+  margin-top: 20px;
+}
+
+.Card {
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 30%;
+  min-width: 220px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.Card h3,
+p {
+  margin: 5px;
+}

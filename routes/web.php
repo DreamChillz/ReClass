@@ -15,13 +15,38 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', [
+        'currentRoute' => 'dashboard',
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/members', function () {
+        return Inertia::render('Members', [
+            // you can stub dummy data for now
+            'members' => [
+                ['id' => 1, 'name' => 'Alice'],
+                ['id' => 2, 'name' => 'Bob'],
+            ],
+            'currentRoute' => 'members',
+        ]);
+    })->name('members');
+
+    Route::get('/memberships', function () {
+        return Inertia::render('Memberships', [
+            // stub data
+            'plans' => [
+                ['id' => 1, 'name' => 'Monthly',  'price' => 50],
+                ['id' => 2, 'name' => 'Yearly',   'price' => 500],
+            ],
+            'currentRoute' => 'memberships',
+        ]);
+    })->name('memberships');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

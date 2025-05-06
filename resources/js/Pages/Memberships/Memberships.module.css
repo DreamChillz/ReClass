@@ -1,0 +1,257 @@
+.container {
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap:10px;
+  }
+
+  .membershipActions{
+    /* padding: 10px; */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .membershipCount{
+    font-weight: lighter;
+    color:#787878;
+  }
+  
+  .searchInput {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .addButton {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: fit-content;
+  }
+  
+  .addButton:hover {
+    background-color: #ff5733;
+  }
+
+  .deleteButton {
+    background-color: rgb(242, 69, 69);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: fit-content;
+  }
+  
+  .deleteButton:hover {
+    background-color: red;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    /* border-bottom: 1px solid #ddd; */
+  }
+  
+  .table th {
+    background: #efefef;
+  }
+  
+  .table tr:hover {
+    background: #f3f3f3;
+  }
+  
+  .actions {
+    display: flex; 
+    gap: 10px;
+    justify-content: space-around;
+  }
+  
+  .icon {
+    cursor: pointer;
+    color: #555;
+    transition: 0.3s;
+  }
+  
+  .icon:hover {
+    color: #ff5733;
+  }
+
+  .deleteIcon{
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+    overflow-y: scroll;
+    max-height: 90%;
+  }
+  
+
+  .modalContent h2{
+    margin-bottom: 10px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modalContent form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modalContent label {
+    margin: 10px 0 5px;
+  }
+  
+  .modalContent input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .buttonSection{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .submitButton, .cancelButton {
+    background-color: #ff7f50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    transition:0.3s;
+  }
+  
+  .cancelButton{
+    background-color: transparent;
+    border: 1px black solid;
+    color: black;
+  }
+
+  .submitButton:hover {
+    background-color: #ff5733;
+  }
+
+  .cancelButton:hover{
+    background-color: #d8d7d7;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .checkboxuserid {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    vertical-align: middle;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 180px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    padding: 5px 10px;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+    
+  .pagination button.active {
+    background-color: #ddd;
+    font-weight: bold;
+  }
+    
+  .pagination button:hover {
+    background-color: #ff8c00;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .searchInput {
+      width: 100%;
+    }
+  
+    .table th, .table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .actions {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+  

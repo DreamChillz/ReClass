@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #dadada;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.navButton {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: grey;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navButton:hover {
+  color: pink;
+  border-bottom: 2px solid pink;
+}
+
+.navButton.active {
+  color: orange;
+  border-bottom: 2px solid orange;
+}

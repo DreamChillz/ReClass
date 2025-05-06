@@ -1,0 +1,506 @@
+.announcementsContent {
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+.announcementsFunction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.announcementsTitle {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.announcementAction {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.searchContainer {
+    width: 300px;
+    height: 30px;
+    display: flex;
+}
+
+.searchInput {
+    font-family: "Roboto", sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 16px;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.addAnnouncement {
+    font-family: "Roboto", sans-serif;
+    padding: 8px 16px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addAnnouncement:hover {
+    background-color: #ff5733;
+}
+
+.announcementsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.announcementsTable th,
+.announcementsTable td {
+    box-sizing: border-box;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.announcementsTable td {
+    vertical-align: middle;
+}
+
+th, td {
+    padding: 5px;
+}
+
+td {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.announcementsTable th {
+    background-color: #efefef;
+    font-weight: bold;
+}
+.announcementsTable tr:hover {
+    background: #f3f3f3;
+}
+input[type=radio] {
+    margin-top: 10px;
+}
+.checkboxAid1 input[type="checkbox"] {
+    transform: scale(0.9);
+    margin: 5px;
+}
+
+.checkboxAid {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    vertical-align: middle;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.deleteMemberButton {
+    font-family: "Roboto", sans-serif;
+    padding: 8px 16px;
+    background-color: rgb(242, 69, 69);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+.editButton,
+.deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.actions {
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+}
+
+.editButton:hover,
+.deleteButton:hover {
+    color: #ff5733;
+}
+
+
+.addAOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    width: 550px;
+    max-height: 90%;
+    overflow-y: scroll;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.modalTitle {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.announcementBtn {
+    width: 100%;
+    background: #e67e22;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.announcementBtn:hover {
+    background: #d35400;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+.announcementForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.leftColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightColumn {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+.inputGroup,
+.notificationType,
+.posterUpload,
+.schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radioGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.posterUpload input {
+    width: 100%;
+}
+
+.datePicker {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+  
+.modalActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.cancelBtn,
+.updateBtn {
+    flex: 1;
+    margin: 0 5px;
+}
+  
+@media (max-width: 768px) {
+    .announcementForm {
+      flex-direction: column;
+    }
+  
+    .leftColumn,
+    .rightColumn {
+      width: 100%;
+    }
+}
+  
+.inputGroup label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+.inputGroup input,
+.inputGroup textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+  
+textarea {
+    height: 80px;
+    resize: none;
+}
+  
+.notificationType {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+  
+.radioGroup {
+    display: flex;
+    gap: 10px;
+}
+  
+.radioGroup input {
+    margin-right: 5px;
+}
+  
+.posterUpload {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+  
+.posterUpload input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+  
+.datePicker {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+  
+.modalActions {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.cancelBtn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 35px;
+}
+  
+.updateBtn {
+    background: #d87c33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+  
+.updateBtn:hover {
+    background: #b96928;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+}
+
+.modal input,
+.modal textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.cancelButton {
+    background: #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.saveButton {
+    background: #e67e22;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.Editoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalOverlayDeleteM {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalDeleteM {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    max-height: 90%;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: scroll;
+  }
+  
+  .modalButtons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cancelDeleteButton {
+    background: transparent;
+    color: black;
+    padding: 10px;
+    border: 1px black solid;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40%;
+    transition:0.3s;
+  }
+
+  .cancelDeleteButton:hover{
+    background-color: #d8d7d7;
+  }
+  
+  .confirmDeleteButton {
+    background: #ff7f50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    border-radius: 5px;
+    transition:0.3s;
+  }
+
+  .confirmDeleteButton:hover{
+    background-color: #ff5733;
+  }
+
+  .deleteIcon{
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  label.required::after {
+      content: " *";
+      color: red;
+  }
