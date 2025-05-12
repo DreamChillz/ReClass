@@ -1,41 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
-.App {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: #f8f9fb;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fb;
-}
-.Sidebar {
-    z-index: 1000;
-    padding: 0px;
-    height: 100vh;
-    min-width: 190px;
-    width: 16%;
-    max-width: 220px;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-}
-
-.SidebarList::-webkit-scrollbar {
-    display: none;
-}
 
 .logo {
     width: 60%;
@@ -45,60 +8,12 @@ body {
     object-fit: contain;
 }
 
-.SidebarList {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    align-items: center;
-    overflow-y: auto;
-    scrollbar-width: none;
-}
-
-.SidebarList .row {
-    display: flex;
-    align-items: center;
-    padding: 13px;
-    color: rgb(126, 120, 120);
-    list-style-type: none;
-    position: relative;
-    transition: 0.3s ease-in-out;
-}
-
-.SidebarList .row::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid transparent;
-    transition: border-color 0.4s ease-in-out;
-}
-
-.SidebarList .row:hover::before {
-    border-color: rgb(247, 188, 188); /* Border color */
-}
-
-.SidebarList .row:hover {
-    background-color: #d0d1d3;
-    cursor: pointer;
-}
-
- .icon {
-    flex: 0 0 20%; /* fixed 20% width */
-    text-align: center;
-}
-
-.title {
-    flex: 1; /* remaining 80% */
-    padding-left: 10px;
-}
-
 .Header {
-    margin-top: 25px;
+    /* margin-top: 25px; */
     width: 100%;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0);
+    /* margin: 10px; */
+    background-color: #1A1A1A;
+    color:white;
 }
 
 .Header p {
@@ -110,8 +25,8 @@ body {
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    color:white;
+    background-color: #0D0D0D;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,19 +56,16 @@ body {
 .name {
     font-size: 16px;
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 .AppContent {
     flex-grow: 1;
-    margin-left: calc(180px + 2%);
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     height: 100vh;
-    width: calc(100% - 17%);
     overflow-x: hidden;
+    background-color: #0D0D0D;
 }
 
 .HeaderProfile {

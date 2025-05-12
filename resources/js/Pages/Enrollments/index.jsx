@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Schedules.module.css";
 import { Trash, Edit, X, Eye } from "lucide-react";
 import ConfirmModal from "../../components/ConfirmDelete/ConfirmDelete.jsx";
+import AppLayout from "@/Layouts/AppLayout";
 
 const Schedules = () => {
   const [search, setSearch] = useState("");
@@ -9,16 +10,6 @@ const Schedules = () => {
   const [filteredClass, setFilteredClass] = useState([]);
   const [selectedClass, setSelectedClass] = useState(false);
 
-//Display Classes
-  useEffect(() => {
-    fetch("http://localhost:5000/api/schedules/display")
-      .then((response) => response.json())
-      .then((data) => {
-        setClass(data);
-        setFilteredClass(data.classDetails);
-      })
-      .catch((error) => console.error("Error fetching stats:", error));
-  }, []);
 
 //Search Classes
   const filterClass = (searchQuery) => {
@@ -148,17 +139,7 @@ const Schedules = () => {
       });
   };    
 
-//Fetch trainers
-  const [trainers, setTrainers] = useState([]);
 
-  useEffect(() => {
-      fetch('http://localhost:5000/api/schedules/trainers')
-          .then((response) => response.json())
-          .then((data) => {
-            setTrainers(data);
-          })
-          .catch((error) => console.error("Error fetching trainers:", error));
-  }, []);
 
 // Add Class Modal Function
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -591,5 +572,7 @@ const Schedules = () => {
       )}
     </div>
 )}
+
+Schedules.layout = page => <AppLayout>{page}</AppLayout>
 
 export default Schedules;

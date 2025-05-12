@@ -18,7 +18,7 @@ createInertiaApp({
         }
         // Fallback to nested index.jsx
         return resolvePageComponent(
-            `./Pages/${name}/index.jsx`,
+            `./Pages/${name}/Index.jsx`,
             pages
         )
     },

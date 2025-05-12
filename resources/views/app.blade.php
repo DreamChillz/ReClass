@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Scripts -->
-        @routes
-        @viteReactRefresh
-        @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
-        @inertiaHead
-    </head>
-    <body class="font-sans antialiased">
-        @inertia
-    </body>
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Scripts -->
+    @routes
+    @viteReactRefresh
+    @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
+    @inertiaHead
+</head>
+
+<body class="font-sans antialiased">
+    @inertia
+</body>
+
 </html>

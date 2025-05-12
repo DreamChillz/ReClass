@@ -1,38 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Billing.module.css";
 import { Printer, Trash, X } from "lucide-react";
-import PrintOverlay from "./PrintOverlay.jsx";
+import AppLayout from "@/Layouts/AppLayout";
 
-export default function Billing() {
+export default function Attendance() {
   const [transactions, setTransactions] = useState([]); // Store transaction data
   const [transactionCount, setTransactionCount] = useState(0); // Store total count
   const [statusFilter, setStatusFilter] = useState(""); // Store selected status
   const [selectedTransaction, setSelectedTransaction]=useState(null);
 
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false); //show delete overlay
-  const [showPrintOverlay, setShowPrintOverlay] = useState(false);
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-
-  // Fetch billing data from backend
-  useEffect(() => {
-    fetch("http://localhost:5000/api/billing/display")
-      .then((response) => {
-        if (!response.ok) throw new Error("Failed to fetch data");
-        return response.json();
-      })
-      .then((data) => {
-        setTransactions(data.transactions); // Store data in state
-        setTransactionCount(data.transactionCount);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
 
   // Formatting date function
   function formatDate(dateString) {
@@ -46,55 +26,7 @@ export default function Billing() {
       statusFilter === "" || transaction.payment_status === statusFilter
   );
 
-  //Delete transaction function
-  const [transactionsToDelete, setTransactionsToDelete] = useState([]);
-  const handleDeleteClick = (transaction_id = null) => {
-      let selectedTransactionIds;
-  
-      if (transaction_id) {
-        selectedTransactionIds = [transaction_id];
-      } else {
-        selectedTransactionIds = Object.keys(selectedTransactions).filter(id => selectedTransactions[id]);
-          
-          if (selectedTransactionIds.length === 0) {
-              alert("Please select at least one transaction to delete.");
-              return;
-          }
-      }
-      setTransactionsToDelete(selectedTransactionIds);
-      setShowDeleteConfirm(true);
-  };
 
-  const handleDelete = () => {
-      fetch(`http://localhost:5000/api/billing/delete`, {
-          method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ transaction_ids: transactionsToDelete }),
-      })
-      .then(response => response.json())
-      .then(data => {
-          alert(data.message);
-          fetchTransactions(); 
-          setSelectedTransactions({});
-          setSelectAll(false);
-          setShowDeleteConfirm(false);
-          setTransactionsToDelete([]);
-      })
-      .catch(error => {
-          console.error("Error deleting transactions:", error);
-      });
-  };    
-
-  const fetchTransactions = () => {
-    fetch("http://localhost:5000/api/billing/display")
-      .then((response) => response.json())
-      .then((data) => {
-        setTransactions(data.transactions);
-        setTransactionCount(data.transactionCount);
-        setLoading(false);
-      })
-      .catch((error) => console.error("Error fetching stats:", error));
-  };
 
    // For Select All Function
   const [SelectAll, setSelectAll] = useState(false);
@@ -137,18 +69,6 @@ export default function Billing() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-const handlePrintClick=(transaction)=>{
-  setSelectedTransaction(transaction);
-
-  fetch(`http://localhost:5000/api/billing/user-info/${transaction.user_id}`)
-  .then((response) => response.json())
-  .then((data) => {
-    setSelectedTransaction((prev) => ({ ...prev, ...data.record }));
-    setShowPrintOverlay(true);
-  })
-  .catch((error) => console.error("Error fetching stats:", error));
-}
 
   return (
     <div className={styles.billingContent}>
@@ -248,27 +168,7 @@ const handlePrintClick=(transaction)=>{
         </tbody>
       </table>
 
-      {/* For Admin to Delete Transaction(Overlay) */}
-      {showDeleteConfirm && (
-          <div className={styles.modalOverlayDeleteM}>
-              <div className={styles.modalDeleteM} style={{ textAlign: "center" }}>
-                  <button className={styles.closeButton} onClick={() => setShowDeleteConfirm(false)}>
-                  <X size={24} />
-                  </button>
-                  <Trash className={styles.deleteIcon} size={40}/>
-                  <p style={{ marginBottom: "30px" }}>Are you sure you want to delete this transaction?</p>
-                  <div className={styles.modalButtons}>
-                      <button className={styles.cancelDeleteButton} onClick={() => setShowDeleteConfirm(false)}>
-                          No, cancel
-                      </button>
-                      <button className={styles.confirmDeleteButton} onClick={handleDelete}>
-                          Yes, I'm sure
-                      </button>
-                  </div>
-              </div>
-          </div>
-      )}
-
+      
       {/* pages under table */}
       <div className={styles.pagination}>
         {Array.from({ length: totalPages }, (_, index) => (
@@ -284,3 +184,6 @@ const handlePrintClick=(transaction)=>{
     </div>
   );
 }
+
+Attendance.layout = page => <AppLayout>{page}</AppLayout>
+

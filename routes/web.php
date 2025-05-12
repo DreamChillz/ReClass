@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -26,27 +27,35 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/members', function () {
-        return Inertia::render('Members', [
-            // you can stub dummy data for now
-            'members' => [
-                ['id' => 1, 'name' => 'Alice'],
-                ['id' => 2, 'name' => 'Bob'],
-            ],
-            'currentRoute' => 'members',
-        ]);
-    })->name('members');
+    Route::resource('students', StudentController::class);
 
-    Route::get('/memberships', function () {
-        return Inertia::render('Memberships', [
-            // stub data
-            'plans' => [
-                ['id' => 1, 'name' => 'Monthly',  'price' => 50],
-                ['id' => 2, 'name' => 'Yearly',   'price' => 500],
-            ],
-            'currentRoute' => 'memberships',
+
+
+    Route::get('/subjects', function () {
+        return Inertia::render('Subjects', [
+
+            'currentRoute' => 'subjects',
         ]);
-    })->name('memberships');
+    })->name('subjects');
+
+    Route::get('/teachers', function () {
+        return Inertia::render('Teachers', [
+
+            'currentRoute' => 'teachers',
+        ]);
+    })->name('teachers');
+
+    Route::get('/enrollments', function () {
+        return Inertia::render('Enrollments', [
+            'currentRoute' => 'enrollments',
+        ]);
+    })->name('enrollments');
+
+    Route::get('/attendance', function () {
+        return Inertia::render('Attendance', [
+            'currentRoute' => 'attendance',
+        ]);
+    })->name('attendance');
 });
 
 require __DIR__ . '/auth.php';

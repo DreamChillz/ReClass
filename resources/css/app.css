@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* add any extra base rules here: */
+@layer base {
+    /* ensure the body gets your bg and font */
+    body {
+        @apply font-sans;
+    }
+}

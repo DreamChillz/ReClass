@@ -1,6 +1,5 @@
 import React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PeopleIcon from "@mui/icons-material/People";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import ScheduleIcon from "@mui/icons-material/Schedule";
@@ -9,6 +8,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import AddAlertIcon from "@mui/icons-material/AddAlert";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import FaceIcon from '@mui/icons-material/Face';
 
 export const SidebarData = [
   {
@@ -17,44 +17,44 @@ export const SidebarData = [
     link: "/dashboard",
   },
   {
-    title: "Members",
-    icon: <PeopleIcon />,
-    link: "/members",
+    title: "Students",
+    icon: <FaceIcon />,
+    link: "/students",
   },
   {
-    title: "Trainers",
+    title: "Subjects",
     icon: <SupervisedUserCircleIcon />,
-    link: "/Trainers",
+    link: "/subjects",
   },
   {
-    title: "Memberships",
+    title: "Teachers",
     icon: <ContactMailIcon />,
-    link: "/memberships",
+    link: "/teachers",
   },
   {
-    title: "Class Schedules",
+    title: "Enrollments",
     icon: <ScheduleIcon />,
-    link: "/Schedules",
+    link: "/enrollments",
   },
   {
-    title: "Analytics",
+    title: "Calendar",
     icon: <AssessmentIcon />,
-    link: "/Analytics",
+    link: "/calendar",
   },
   {
-    title: " Billing",
+    title: "Attendance",
     icon: <AccountBalanceIcon />,
-    link: "/Billing",
+    link: "/attendance",
   },
   {
-    title: " Announcements",
+    title: "Replacements",
     icon: <AddAlertIcon />,
-    link: "/Announcements",
+    link: "/replacements",
   },
   {
     title: "Feedback",
     icon: <FeedbackIcon />,
-    link: "/Feedback",
+    link: "/feedback",
   },
   {
     title: "Logout",
